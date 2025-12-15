@@ -1,8 +1,5 @@
 # football analysis using YOLO model
 
-Example of one frame.
-<img width="1540" height="808" alt="image" src="https://github.com/user-attachments/assets/6ee2d22e-f371-4849-a214-1e557c0ff3c9" />
-
 📌 Project Pipeline Overview
 
 This project implements an end-to-end football video analysis pipeline that performs object detection, multi-object tracking, and visualization using a deep learning model.
@@ -26,6 +23,11 @@ Referees
 Ball
 
 Frames are processed in batches to reduce memory usage and improve performance.
+
+## Example of one frame:
+
+<img width="1540" height="808" alt="image" src="https://github.com/user-attachments/assets/6ee2d22e-f371-4849-a214-1e557c0ff3c9" />
+
 
 🔹 3. Object Tracking (ByteTrack)
 
