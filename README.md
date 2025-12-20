@@ -26,7 +26,7 @@ Frames are processed in batches to reduce memory usage and improve performance.
 
 ## Example of one frame:
 
-<img width="1540" height="808" alt="image" src="https://github.com/user-attachments/assets/6ee2d22e-f371-4849-a214-1e557c0ff3c9" />
+<img width="1566" height="804" alt="image" src="https://github.com/user-attachments/assets/d9d5a62d-c3d3-454d-b532-142ab5759913" />
 
 
 🔹 3. Object Tracking (ByteTrack)
