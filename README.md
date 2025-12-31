@@ -21,32 +21,52 @@ This project implements an end-to-end football video analytics pipeline using YO
 ```text
 Football_ObjectDetection_Tracking_Project/
 │
-├── main.py
-├── models/
-│   └── best.pt                  # Trained YOLOv8 model
+├── main.py                          # Main pipeline entry point
+├── yolo_inference.py                # YOLOv8 inference script
+├── requirements.txt                 # Project dependencies
+├── yolov8x.pt                       # Pretrained YOLOv8 model
 │
 ├── input_videos/
-│   └── input_videos.mp4         # Input football match video
+│   └── input_videos.mp4             # Input football match video
 │
 ├── output_videos/
-│   └── output_video.avi         # Final annotated output
+│   └── output_video.avi              # Final annotated output video
+│
+├── models/
+│   └── best.pt                       # Custom-trained YOLOv8 model
 │
 ├── stubs/
-│   └── track_stubs.pkl          # Cached tracking results
+│   └── track_stubs.pkl               # Cached tracking results
+│
+├── runs/
+│   └── detect/
+│       └── predict/                 # YOLO detection outputs
 │
 ├── trackers/
-│   └── tracker.py               # Detection & tracking logic
+│   └── tracker.py                    # Detection & tracking logic
 │
 ├── team_assigner/
-│   └── team_assigner.py         # Team color detection & assignment
+│   └── team_assigner.py              # Team color detection & assignment
 │
 ├── player_ball_assigner/
-│   └── player_ball_assigner.py  # Ball possession logic
+│   └── player_ball_assigner.py       # Ball possession logic
 │
 ├── utils/
-│   └── video_utils.py           # Video read/write utilities
+│   └── video_utils.py                # Video read/write utilities
 │
+├── training/
+│   ├── train.py                      # Model training script
+│   └── data.yaml                     # Dataset configuration
+│
+├── development_and_analysis/
+│   └── notebooks.ipynb               # Experiments & analysis notebooks
+│
+├── __pycache__/                      # Python cache files
+│
+├── .gitignore
+├── .gitattributes
 └── README.md
+
 ```
 
 
