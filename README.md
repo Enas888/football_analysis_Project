@@ -46,6 +46,7 @@ Football_ObjectDetection_Tracking_Project/
 │
 └── README.md
 
+
 # 🧠 Pipeline Overview
 
 The system processes a football video through the following steps:
