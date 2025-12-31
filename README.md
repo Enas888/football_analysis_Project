@@ -17,6 +17,7 @@ This project implements an end-to-end football video analytics pipeline using YO
 🎥 Annotated output video with bounding boxes, team colors, and possession indicators
 
 # 📁 Project Structure
+'''
 Football_ObjectDetection_Tracking_Project/
 │
 ├── main.py
@@ -45,7 +46,7 @@ Football_ObjectDetection_Tracking_Project/
 │   └── video_utils.py           # Video read/write utilities
 │
 └── README.md
-
+'''
 
 # 🧠 Pipeline Overview
 
