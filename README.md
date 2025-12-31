@@ -1,72 +1,148 @@
-# football analysis using YOLO model
+# ⚽ Football Object Detection & Tracking with Advanced Analytics
 
-# 📌 Project Pipeline Overview
+This project implements an end-to-end football video analytics pipeline using YOLOv8, enabling player and ball detection, multi-object tracking, team assignment, and ball possession analysis, with annotated video output.
 
-This project implements an end-to-end football video analysis pipeline that performs object detection, multi-object tracking, and visualization using a deep learning model.
+# 🚀 Features
 
-🔹 1. Video Input
+🧠 YOLOv8-based object detection (players, ball)
 
-The pipeline starts by loading a football match video.
+🎯 Multi-object tracking across video frames
 
-The video is read frame-by-frame into memory for processing.
+🎨 Automatic team assignment based on jersey color
 
-🔹 2. Object Detection (YOLO)
+⚽ Ball-to-player assignment (ball possession detection)
 
-A pretrained YOLO model is used to detect objects in each frame.
+📊 Team ball control analysis over time
 
-Target classes include:
+🎥 Annotated output video with bounding boxes, team colors, and possession indicators
 
-- Players
+# 📁 Project Structure
+Football_ObjectDetection_Tracking_Project/
+│
+├── main.py
+├── models/
+│   └── best.pt                  # Trained YOLOv8 model
+│
+├── input_videos/
+│   └── input_videos.mp4         # Input football match video
+│
+├── output_videos/
+│   └── output_video.avi         # Final annotated output
+│
+├── stubs/
+│   └── track_stubs.pkl          # Cached tracking results
+│
+├── trackers/
+│   └── tracker.py               # Detection & tracking logic
+│
+├── team_assigner/
+│   └── team_assigner.py         # Team color detection & assignment
+│
+├── player_ball_assigner/
+│   └── player_ball_assigner.py  # Ball possession logic
+│
+├── utils/
+│   └── video_utils.py           # Video read/write utilities
+│
+└── README.md
 
-- Referees
+# 🧠 Pipeline Overview
 
-- Ball
+The system processes a football video through the following steps:
 
-Frames are processed in batches to reduce memory usage and improve performance.
+Video Loading
 
-## Example of one frame:
+Reads input video and extracts frames.
 
-<img width="1566" height="804" alt="image" src="https://github.com/user-attachments/assets/d9d5a62d-c3d3-454d-b532-142ab5759913" />
+Object Detection & Tracking
 
+Uses YOLOv8 to detect players and the ball.
 
-🔹 3. Object Tracking (ByteTrack)
+Tracks objects across frames.
 
-Detected objects are passed to ByteTrack for multi-object tracking.
+Supports cached tracking using stub files to speed up experiments.
 
-Each object is assigned a unique tracking ID that remains consistent across frames.
+Ball Trajectory Interpolation
 
-Goalkeepers are reclassified as players to simplify player analysis.
+Smooths missing ball detections for consistent tracking.
 
-🔹 4. Track Management
+Team Assignment
 
-Tracking results are stored in a structured format:
+Learns team colors from the first frame.
 
-- Separate tracks for players, referees, and the ball
+Assigns each player to a team dynamically.
 
-- Bounding boxes indexed by frame number and track ID
+Ball Possession Detection
 
-🔹 5. Visualization
+Assigns the ball to the closest player per frame.
 
-Bounding boxes and tracking IDs are drawn on video frames:
+Determines which team controls the ball over time.
 
-- Players → Green
+Visualization & Annotation
 
-- Referees → Red
+Draws bounding boxes, team colors, and possession indicators.
 
-- Ball → Blue
+Saves an annotated output video.
 
-Drawing is done directly on the frames to prepare them for export.
-
-🔹 6. Video Output
-
-- The processed frames are saved as a new video file.
-
-- The output video preserves the original frame rate and resolution while adding visual tracking annotations.
-
-✅ Final Output
-
-The final result is an annotated football video showing tracked players, referees, and the ball with consistent IDs across frames, ready for further analysis or visualization.
-
-<img width="1554" height="816" alt="image" src="https://github.com/user-attachments/assets/2e898384-e3fd-443a-a7f0-fb3cb55d7b87"/>
+# ▶️ How to Run
+## 1️⃣ Install Dependencies
+pip install ultralytics opencv-python numpy
 
 
+Make sure you have Python 3.8+
+
+## 2️⃣ Prepare Files
+
+Place your input video in:
+
+input_videos/input_videos.mp4
+
+
+Place your trained YOLOv8 model in:
+
+models/best.pt
+
+## 3️⃣ Run the Pipeline
+python main.py
+
+## 4️⃣ Output
+
+Annotated video will be saved to:
+
+output_videos/output_video.avi
+
+# 📊 Output Visualizations
+
+The output video includes:
+
+Player and ball bounding boxes
+
+Team-specific colors
+
+Ball possession indicators
+
+Team-level ball control timeline
+
+# 🧪 Technologies Used
+
+Python
+
+YOLOv8 (Ultralytics)
+
+OpenCV
+
+NumPy
+
+Multi-Object Tracking
+
+Computer Vision for Sports Analytics
+
+#🔮 Future Improvements
+
+Player re-identification across camera cuts
+
+Tactical heatmaps and formation analysis
+
+Real-time inference optimization
+
+Event detection (passes, shots, goals)
